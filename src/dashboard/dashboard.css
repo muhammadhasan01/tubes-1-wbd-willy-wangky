@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+    margin: 20px;
+}
+
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+.showcase-products {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.showcase-products td {
+    padding: 18px;
+}
