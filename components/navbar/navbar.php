@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="navbar.css">
+<style><?php include 'navbar.css'?></style>
 <div class="topnav">
     <a class="active" href="#home">Home</a>
     <!-- TODO: Handle User and Superuser -->
