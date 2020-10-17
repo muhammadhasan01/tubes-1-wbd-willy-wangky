@@ -32,7 +32,7 @@ class Transaction {
         echo $stock . "\n";
         echo $price . "\n";
         if ($stock < $amount){
-            echo "Stok tidak mencukupi\n";
+            return "Stok tidak mencukupi\n";
         } else {
             $chocolate = new Chocolate();
             // update amount coklat
@@ -42,7 +42,7 @@ class Transaction {
             $query = "INSERT INTO transaction(id_user, id_chocolate, amount, total_price, address) 
                     VALUES($id_user, $id_chocolate, $amount, $total_price, '$address')";
             if ($this->db->query($query)){
-                echo "Transaksi berhasil";
+                return "Transaksi berhasil";
             } else {
                 return "Transaksi gagal";
             }
