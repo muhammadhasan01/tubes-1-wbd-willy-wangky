@@ -32,11 +32,12 @@ class User{
     }
 }
 
-$cek = new User();
-if ($cek->get_user('zunan', 'zunan')){
-    echo "ada";
-} else {
-    echo "gaada";
-}
+//Test
+// $cek = new User();
+// if ($cek->get_user('zunan', 'zunan')){
+//     echo "ada";
+// } else {
+//     echo "gaada";
+// }
 
 ?>

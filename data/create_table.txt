@@ -24,7 +24,7 @@ create table transaction (
     id_chocolate int not null,
     amount int not null,
     total_price int not null,
-    time datetime not null,
+    time timestamp default CURRENT_TIMESTAMP,
     address text not null,
     FOREIGN KEY (id_user) references user(id),
     FOREIGN KEY (id_chocolate) references chocolate(id)
