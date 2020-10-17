@@ -21,6 +21,19 @@ class Chocolate {
         return $result;
     }
 
+    // Mengembalikan detail coklat berdasar id
+    public function get_by_id($id){
+        $query = "SELECT * FROM CHOCOLATE WHERE id=$id";
+        $result = $this->db->query($query)->fetch_all();
+        echo var_dump($result);
+        return $result;
+    }
+
+    // mengembalikan semua coklat hasil search
+    public function search(){
+
+    }
+
     // memasukkan chocolate baru
     public function insert($name, $price, $amount, $description, $file_name){
         $query = "INSERT INTO chocolate(name, price, amount, description, file_name)
@@ -52,8 +65,9 @@ class Chocolate {
         }
     }
 }
-
-$cek = new Chocolate();
-$cek->get_all();
-($cek->sell(3,4))
+// Test
+// $cek = new Chocolate();
+// echo "lalalal";
+// $cek->get_by_id(1);
+// ($cek->sell(3,4))
 ?>
