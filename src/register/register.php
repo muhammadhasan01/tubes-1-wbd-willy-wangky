@@ -1,3 +1,7 @@
+<?php
+    include($_SERVER["DOCUMENT_ROOT"] . "/src/cookie-check/cookie-check.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +17,32 @@
             <div class="box">
                 <h2>Willy Wangky Choco Factory</h2>
             </div>
+            <?php
+                if (isset($_POST["username"]) and isset($_POST["email"]) and isset($_POST["password"]) and isset($_POST["confirm-password"])) {
+                    $user_model_path = $_SERVER["DOCUMENT_ROOT"] . "/src/models/user.php";
+                    require_once($user_model_path);
+                    $User = new User();
+
+                    $username = $_POST["username"];
+                    $email = $_POST["email"];
+                    $password = $_POST["password"];
+                    $confirmpassword = $_POST["confirm-password"];
+                    if ($password == $confirmpassword) {
+                        if ($User->insert_user($username, $password, $email)) {
+                            setcookie("username", $username, time() + (86400 * 30), "/"); // 30 hari, "/" artinya cookie buat seluruh website
+                            setcookie("password", $password, time() + (86400 * 30), "/"); 
+                            header("Location: /src/dashboard/dashboard.php");
+                            exit();
+                        } else {
+                            echo "<p>An error occured while we were registering your account. Pls try again.</p>";
+                        }
+                    } else {
+                        echo "<p>Complete all the fields</p>";
+                    }
+                } else {
+                    echo "<p>Complete all the fields</p>";
+                }
+            ?>
             <div class="column-flex-center box">
                 <form class="column-flex-center" action="register">
                     <label for="username">Username</label>
