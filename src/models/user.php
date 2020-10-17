@@ -10,7 +10,7 @@ class User{
 
     // insert new user
     public function insert_user($username, $password, $email){
-        $query = "INSERT INTO users(username, password, email, role) 
+        $query = "INSERT INTO user(username, password, email, role) 
                     VALUES('$username', MD5('$password'), '$email', 'USER')";
         if ($this->db->query($query) === TRUE){
             return true;
@@ -21,7 +21,7 @@ class User{
 
     // return user (id, username, email, role)
     public function get_user($username, $password){
-        $query = "SELECT id, username, email, role FROM users
+        $query = "SELECT id, username, email, role FROM user
                     WHERE username='$username' and password=MD5('$password')";
         $result = $this->db->query($query);
         if ($result->num_rows != 0){
