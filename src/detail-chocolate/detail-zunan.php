@@ -27,7 +27,7 @@
         }
     ?>
     <br><br>
-    <style><?php include 'detail-chocolate.css';?></style>
+    <style><?php include 'detail-zunan.css';?></style>
     
     <p class="title">Choco Name 1</p>
     
