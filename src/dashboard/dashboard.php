@@ -1,5 +1,5 @@
 <?php 
-    include($_SERVER["DOCUMENT_ROOT"] . "/src/cookie-check/cookie-check.php");
+    include("../cookie-check/cookie-check.php");
     include('../../components/navbar/navbar.php');
 ?>
 <!DOCTYPE html>
