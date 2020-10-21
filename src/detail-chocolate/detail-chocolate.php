@@ -29,7 +29,7 @@
     ?>
     <br><br>
     
-    <p class="title">Choco Name 1</p>
+    <p class="title"><?php echo $name?></p>
     
     <form id="input-data" action=""> 
         <div class="card">
