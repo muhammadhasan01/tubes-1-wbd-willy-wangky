@@ -1,55 +1,114 @@
-<?php
-require_once('../cookie-check/cookie-check.php');
-include('../../components/navbar/navbar.php');
-require_once('../models/chocolate.php');
+<?php 
+    include("../cookie-check/cookie-check.php");
+    include('../../components/navbar/navbar.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="../../public/styles/global-style.css">
     <link rel="stylesheet" href="detail-chocolate.css">
-    <title>Chocolate Detail</title>
-</head>
 <body>
     <?php
-        $id = $_GET["id"];
+        $id = $_GET['id'];
+        require_once('../models/chocolate.php');
         $chocolate = new Chocolate();
-        $chocolate_details = $chocolate->get_by_id($id)[0];
-        $name = $chocolate_details[1];
-        $price = $chocolate_details[2];
-        $amount = $chocolate_details[3];
-        $amount_sold = $chocolate_details[4];
-        $description = $chocolate_details[5];
-        $image_path = $chocolate_details[6];
+        $result = $chocolate->get_by_id($id);
+        if ($result){
+            // echo var_dump($result[0][3]);
+            $name = $result[0][1];
+            $price = $result[0][2];
+            $amount = $result[0][3];
+            $sold = $result[0][4];
+            $description = $result[0][5];
+            $filename = $result[0][6];
+        } else {
+            echo "Chocholate not found";
+        }
     ?>
-    <div class="container">
-        <h1><?php echo $name; ?></h1>
-        <div class="content">
-            <div class="image">
-                <div class="chocolate-image"
-                    style="background-image: url('<?php echo "../../public/images/" . $image_path; ?>');"
-                >&nbsp</div>
-            </div>
-            <div class="chocolate-details">
-                <p class="non-description">Amount sold: <span><?php echo $amount_sold; ?></span></p>
-                <p class="non-description">Price: <span>Rp <?php echo $price; ?>,00</span></p>
-                <p class="non-description">Amount: <span><?php echo $amount; ?></span></p>
-                <p class="non-description">Description: </p>
-                <p class="description">
-                    <?php echo $description; ?>
-                </p>                
+    <br><br>
+    
+    <p class="title">Choco Name 1</p>
+    
+    <form id="input-data" action=""> 
+        <div class="card">
+            <img src="../../public/images/<?php echo $filename;?>"></img>
+            <div class="details">
+                <p class="price">Price: Rp <?php echo $price;?>,00</p>
+                <p class="amount">Amount remaining: <?php echo $amount;?></p>
+                <p class="desc">
+                    Description:<br/><?php echo $description;?>
+                </p>
+                <table class="buy-form">
+                    <tr>
+                        <th> Amount to buy :</th>
+                        <th> Price :</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" href="" onclick="subtractAmount()">-</button>
+                            <input id="amount" name="amount" type="number" value="0" readonly>
+                            <button type="button" href="" onclick="addAmount()">+</button>
+                        </td>
+                        <td>Rp.<span id="choco-price">0</span></td>
+                    </tr>
+                </table>
             </div>
         </div>
-    </div>
-    <div class="container-button">
-        <div class="buy-button-container">
-            <a href="../buy-chocolate/buy-chocolate.php">
-                <input type="button" value="Buy Now">
-            </a>
+        <div class="container buy-form">
+            <label for="address"> address </label> <br>
+            <textarea name="address" id="address" cols="30" rows="10"></textarea>
         </div>
-    </div>
+        <div class="buy-form container">
+            <button class="buttons" >Buy</button>
+            <button type="button" class="buttons" onclick="hideForm()">Cancel</button>
+        </div>
+        <div class="buy container">
+            <button type="button" class="buttons" onclick="showForm()">Buy Now</button>
+        </div>
+    </form>
+
+
+    <script>
+        function showForm(){
+            var temp2 = document.getElementsByClassName("buy");
+            for (let div2 of temp2){
+                div2.style.display = "none";
+            }
+            var form_div = document.getElementsByClassName("buy-form");
+            for (let div of form_div){
+                div.style.display = "block";
+            }
+        }
+
+        function hideForm(){
+            var form_div = document.getElementsByClassName("buy");
+            for (let div of form_div){
+                div.style.display = "block";
+            }
+            var temp2 = document.getElementsByClassName("buy-form");
+            for (let div2 of temp2){
+                div2.style.display = "none";
+            }
+        }
+
+        function addAmount(){
+            document.getElementById("amount").value = Number(document.getElementById("amount").value) + 1;
+            updatePrice();
+        }
+
+        function subtractAmount(){
+            if (Number(document.getElementById("amount").value) > 0){
+                document.getElementById("amount").value = Number(document.getElementById("amount").value) - 1;
+            }
+            updatePrice();
+        }
+
+        function updatePrice(){
+            document.getElementById("choco-price").textContent = Number(document.getElementById("amount").value) * Number(<?php echo $price?>);
+        }
+    </script>
 </body>
 </html>
