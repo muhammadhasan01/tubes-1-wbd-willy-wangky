@@ -38,8 +38,14 @@ class Chocolate {
     }
 
     // mengembalikan semua coklat hasil search
-    public function search(){
-
+    public function search($search_key){
+        $query = "SELECT * FROM chocolate WHERE name LIKE '%$search_key%'";
+        $result = $this->db->query($query);
+        if ($result->num_rows != 0){
+            return ($result->fetch_all());
+        } else {
+            return "No result.";
+        }
     }
 
     // memasukkan chocolate baru
