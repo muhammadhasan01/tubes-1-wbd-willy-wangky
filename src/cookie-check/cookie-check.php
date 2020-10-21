@@ -24,8 +24,7 @@ $cookie_dict = $CookieChecker->check_cookie_exists();
 if (!$cookie_dict and (strpos($_SERVER['REQUEST_URI'], 'login') === false and strpos($_SERVER['REQUEST_URI'], 'register') === false)) {
     header('Location: /src/login/login.php');
     exit();
-}
-if ($cookie_dict and (strpos($_SERVER['REQUEST_URI'], 'login') !== false or strpos($_SERVER['REQUEST_URI'], 'register') !== false)) {
+} else if ($cookie_dict and (strpos($_SERVER['REQUEST_URI'], 'login') !== false or strpos($_SERVER['REQUEST_URI'], 'register') !== false)) {
     header('Location: /src/dashboard/dashboard.php');
     exit();
 }

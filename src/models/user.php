@@ -33,8 +33,8 @@ class User{
 }
 
 //Test
-$cek = new User();
-$cek -> insert_user("zunan", "zunan", "zunanalfikri@gmail.com");
+// $cek = new User();
+// $cek -> insert_user("zunan", "zunan", "zunanalfikri@gmail.com");
 // if ($cek->get_user('zunan', 'zunan')){
 //     echo "ada";
 // } else {
