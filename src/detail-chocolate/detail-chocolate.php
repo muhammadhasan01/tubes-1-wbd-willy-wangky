@@ -32,7 +32,7 @@
     
     <p class="title"><?php echo $name?></p>
     
-    <form id="input-data" action=""> 
+    <form id="input-data" action="../buy-chocolate/buy-chocolate.php" method='POST'> 
         <div class="card">
             <img src="../../public/images/<?php echo $filename;?>"></img>
             <div class="details">
@@ -44,22 +44,23 @@
                 <table class="buy-form">
                     <tr>
                         <th> Amount to buy :</th>
-                        <th> Price :</th>
+                        <th style="padding-left: 20px;"> Price :</th>
                     </tr>
                     <tr>
                         <td>
                             <button type="button" href="" onclick="subtractAmount()">-</button>
-                            <input id="amount" name="amount" type="number" value="0" readonly>
+                            <input style="width: 50px;" id="amount" name="amount" type="number" value="0" readonly>
                             <button type="button" href="" onclick="addAmount()">+</button>
                         </td>
-                        <td>Rp.<span id="choco-price">0</span></td>
+                        <td style="padding-left: 20px;">Rp.<span id="choco-price">0</span></td>
                     </tr>
                 </table>
             </div>
         </div>
         <div class="container buy-form">
-            <label for="address"> address </label> <br>
+            <label for="address"> Address :</label> <br>
             <textarea name="address" id="address" cols="30" rows="10"></textarea>
+            <input type="hidden" value="<?php echo $id?>" name="id">
         </div>
         <div class="buy-form container">
             <button class="buttons" >Buy</button>
@@ -95,7 +96,10 @@
         }
 
         function addAmount(){
-            document.getElementById("amount").value = Number(document.getElementById("amount").value) + 1;
+            var update = Number(document.getElementById("amount").value) + 1;
+            if (Number(<?php echo $amount?>) >= update){
+                document.getElementById("amount").value = update;
+            }
             updatePrice();
         }
 
