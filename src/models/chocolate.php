@@ -16,20 +16,19 @@ class Chocolate {
     obj->get_all()[0][6] : mengembalikan row pertama kolom file_name
     */
     public function get_all(){
-        $query = "SELECT * FROM CHOCOLATE ORDER BY sold DESC";
+        $query = "SELECT * FROM chocolate ORDER BY sold DESC";
         $result = $this->db->query($query);
-        if ($result->num_rows != 0){
-            return ($result->fetch_all());
-        } else {
-            return "Chocolate is empty";
-        }
+        // if ($result->num_rows != 0){
+        return ($result->fetch_all());
+        // } else {
+        //     return "Chocolate is empty";
+        // }
     }
 
     // Mengembalikan detail coklat berdasar id
     public function get_by_id($id){
-        $query = "SELECT * FROM CHOCOLATE WHERE id=$id";
+        $query = "SELECT * FROM chocolate WHERE id=$id";
         $result = $this->db->query($query);
-        echo var_dump($result);
         if ($result->num_rows != 0){
             return ($result->fetch_all());
         } else {
