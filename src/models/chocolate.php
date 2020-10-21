@@ -17,16 +17,24 @@ class Chocolate {
     */
     public function get_all(){
         $query = "SELECT * FROM CHOCOLATE ORDER BY sold DESC";
-        $result = $this->db->query($query)->fetch_all();
-        return $result;
+        $result = $this->db->query($query);
+        if ($result->num_rows != 0){
+            return ($result->fetch_all());
+        } else {
+            return "Chocolate is empty";
+        }
     }
 
     // Mengembalikan detail coklat berdasar id
     public function get_by_id($id){
         $query = "SELECT * FROM CHOCOLATE WHERE id=$id";
-        $result = $this->db->query($query)->fetch_all();
+        $result = $this->db->query($query);
         echo var_dump($result);
-        return $result;
+        if ($result->num_rows != 0){
+            return ($result->fetch_all());
+        } else {
+            return false;
+        }
     }
 
     // mengembalikan semua coklat hasil search
