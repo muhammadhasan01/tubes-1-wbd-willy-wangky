@@ -7,6 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/styles/global-style.css">
+    <link rel="stylesheet" href="detail-zunan.css">
     <title>Document</title>
 <body>
     <?php
@@ -15,7 +17,7 @@
         $chocolate = new Chocolate();
         $result = $chocolate->get_by_id($id);
         if ($result){
-            echo var_dump($result[0][3]);
+            // echo var_dump($result[0][3]);
             $name = $result[0][1];
             $price = $result[0][2];
             $amount = $result[0][3];
