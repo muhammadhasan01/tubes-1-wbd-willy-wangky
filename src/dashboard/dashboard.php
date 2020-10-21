@@ -18,9 +18,17 @@
         <!-- TODO: Show Chocolates !-->
         <table class="showcase-products">
             <?php 
-                for ($row = 0; $row < 2; $row++) {
+                require_once('../models/chocolate.php');
+                $chocolate = new Chocolate();
+                $all_chocolates = $chocolate->get_all();
+                // print_r($all_chocolates);
+
+                $rows = floor(count($all_chocolates) / 5) + 1;
+                $columns = count($all_chocolates) - ($rows-1) * 5;
+
+                for ($row = 0; $row < $rows; $row++) {
                     echo "<tr>";
-                    for ($col = 0; $col < 5; $col++) {
+                    for ($col = 0; $col < $columns; $col++) {
                         echo "<td>";
                         include '../../components/card/product-card.php';
                         echo "</td>";

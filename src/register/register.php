@@ -44,7 +44,7 @@
                 }
             ?>
             <div class="column-flex-center box">
-                <form class="column-flex-center" action="register">
+                <form action="register.php" method="POST" class="column-flex-center" >
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username">
     

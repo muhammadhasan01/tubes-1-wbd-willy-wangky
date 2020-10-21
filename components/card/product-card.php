@@ -1,8 +1,19 @@
-<style><?php include 'product-card.css'?></style>
+<style><?php include "product-card.css"?></style>
     <!-- TODO: Make dynamic !-->
     <div class="card">
-    <img src='../../public/images/choco-1.jpg' alt="Denim Jeans" style="width:100%">
-    <h1>Cadburry</h1>
-    <p class="amount">Amount sold: 6</p>
-    <p class="price">Price: Rp. 200.000,00 </p>
-</div>
+        <?php
+            $id = $all_chocolates[$row*5+$col][0];
+            $name = $all_chocolates[$row*5+$col][1];
+            $price = $all_chocolates[$row*5+$col][2];
+            $amount = $all_chocolates[$row*5+$col][3];
+            $image_path = "../../public/images/" . $all_chocolates[$row*5+$col][6];
+        ?>
+        <a href="../../src/detail-chocolate/detail-chocolate.php?<?php echo $id; ?>" class="chocolate-detail-link">
+            <div class="chocolate-image"
+                style="background-image: url('<?php echo $image_path; ?>');"
+            >&nbsp</div>
+            <h1><?php echo $name; ?></h1>
+            <p class="amount">Amount available: <?php echo $amount; ?></p>
+            <p class="price">Price: Rp. <?php echo $price; ?>,00 </p>
+        </a>
+    </div>
