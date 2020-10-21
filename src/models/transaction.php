@@ -1,6 +1,6 @@
 <?php
-include 'config_db.php';
-include 'chocolate.php';
+require_once('config_db.php');
+require_once('chocolate.php');
 
 class Transaction {
     private $db;
