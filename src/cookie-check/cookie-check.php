@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/models/user.php");
+require_once("../models/user.php");
 
 class CookieChecker {
     public function __construct() {
