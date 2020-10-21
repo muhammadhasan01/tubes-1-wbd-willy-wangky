@@ -1,5 +1,5 @@
 <?php
-    include($_SERVER["DOCUMENT_ROOT"] . "/src/cookie-check/cookie-check.php");
+    require_once("../cookie-check/cookie-check.php");
 ?>
 
 <!DOCTYPE html>
