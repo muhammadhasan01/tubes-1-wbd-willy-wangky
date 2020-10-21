@@ -32,7 +32,7 @@
                             header("Location: /src/dashboard/dashboard.php");
                             exit();
                         } else {
-                            echo "<p>Enter the correct uname and password you fucking dumb piece of shit</p>";
+                            echo "<p>Enter the correct uname and password</p>";
                         }
                     } else {
                         echo "<p>Enter ur uname and password</p>";

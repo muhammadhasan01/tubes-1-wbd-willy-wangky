@@ -1,5 +1,5 @@
 <?php
-include 'config_db.php';
+require_once('config_db_fabian.php');
 
 class Chocolate {
     private $db;
