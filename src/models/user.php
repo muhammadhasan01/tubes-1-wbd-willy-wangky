@@ -1,5 +1,5 @@
 <?php
-include 'config_db_fabian.php';
+include 'config_db.php';
 
 class User{
     private $db;
