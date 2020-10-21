@@ -66,7 +66,7 @@ require_once("../cookie-check/cookie-check.php");
                     <input type="text" id="confirm-password" name="confirm-password">
 
                     <div class="buttons row-flex">
-                        <a href="../Login/Login.php">Login</a>
+                        <a href="../login/login.php">Login</a>
                         <input type="submit" value="Register">
                     </div>
                 </form>
