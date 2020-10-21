@@ -12,10 +12,16 @@
     <link rel="stylesheet" href="../../public/styles/register.css">
 </head>
 <body>
-    <section class="login-container column-flex-center">
-        <div class="login-card column-flex-center">
+    <div class="login-container">
+        <div class="title">
+            <h1>Willy Wangky</h1>
+            <h2>Choco Factory</h2>
+            <br><br><br><br>
+            <p>Anda mungkin sudah tahu mengenai pabrik coklat terbesar seantero dunia, Willy Wangky. Akan tetapi, produsen terbaik tidak akan sukses tanpa konsumen dan distributor terbaik. Sebab coklat dari Willy Wangky sangat disenangi konsumen, maka Willy Wangky membutuhkan distributor yang handal dalam menangani penjualan coklat. Untungnya, Willy Wangky mengenal Jan. Jan sudah sangat pengalaman dengan distribusi makanan dan minuman ringan. Bahkan, Jan sudah memiliki usaha sendiri bernama Jan’s Cook.</p>
+        </div>
+        <div class="login-card">
             <div class="box">
-                <h2>Willy Wangky Choco Factory</h2>
+                <h2>Login</h2>
             </div>
             <div class="box">
                 <?php
@@ -35,22 +41,26 @@
                             echo "<p>Enter the correct uname and password</p>";
                         }
                     } else {
-                        echo "<p>Enter ur uname and password</p>";
+                        echo "<p>Enter your username and password</p>";
                     }
                 ?>
             </div>
-            <div class="column-flex-center box">
-                <form action="login.php" method="post" class="column-flex-center">
+            <div class="box">
+                <form action="login.php" method="post" class="column-flex">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username">
     
                     <label for="password">Password</label>
                     <input type="text" id="password" name="password">
-
-                    <input type="submit" value="Login">
+                    
+                    <div class="buttons row-flex">
+                        <a href="../register/register.php">Register</a>
+                        <input type="submit" value="Login">
+                    </div>
                 </form>
             </div>
         </div>  
-    </section>
+    </div>
+    <div class="background">&dbsp</div>
 </body>
 </html>
