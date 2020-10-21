@@ -1,6 +1,10 @@
 <style><?php include 'navbar.css'?></style>
 <div class="topnav">
+<<<<<<< HEAD
     <a class="active" href="../../index.php">Home</a>
+=======
+    <a class="active" href="/">Home</a>
+>>>>>>> b16beda41dcc812d68d7c55a8380a2b5ff66751c
     <!-- TODO: Handle User and Superuser -->
     <a href="#news">History</a>
     <input type="text" placeholder="Search">

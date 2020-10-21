@@ -1,5 +1,5 @@
 <?php
-    require_once("../cookie-check/cookie-check.php");
+require_once("../cookie-check/cookie-check.php");
 ?>
 
 <!DOCTYPE html>
