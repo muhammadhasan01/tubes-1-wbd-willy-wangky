@@ -1,5 +1,5 @@
 <?php
-    require_once("../cookie-check/cookie-check.php");
+require_once("../cookie-check/cookie-check.php");
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
             <div class="box">
                 <?php
                     if (isset($_POST["username"]) and isset($_POST["password"])) {
-                        $user_model_path = $_SERVER["DOCUMENT_ROOT"] . "/src/models/user.php";
+                        $user_model_path = "../models/user.php";
                         require_once($user_model_path);
                         $User = new User();
 

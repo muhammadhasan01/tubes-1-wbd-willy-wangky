@@ -8,7 +8,7 @@
             $amount = $all_chocolates[$row*5+$col][3];
             $image_path = "../../public/images/" . $all_chocolates[$row*5+$col][6];
         ?>
-        <a href="../../src/detail-chocolate/detail-chocolate.php?<?php echo $id; ?>" class="chocolate-detail-link">
+        <a href="../../src/detail-chocolate/detail-chocolate.php?id=<?php echo $id; ?>" class="chocolate-detail-link">
             <div class="chocolate-image"
                 style="background-image: url('<?php echo $image_path; ?>');"
             >&nbsp</div>

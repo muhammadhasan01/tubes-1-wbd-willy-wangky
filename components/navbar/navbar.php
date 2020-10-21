@@ -1,6 +1,6 @@
 <style><?php include 'navbar.css'?></style>
 <div class="topnav">
-    <a class="active" href="#home">Home</a>
+    <a class="active" href="/">Home</a>
     <!-- TODO: Handle User and Superuser -->
     <a href="#news">History</a>
     <input type="text" placeholder="Search">

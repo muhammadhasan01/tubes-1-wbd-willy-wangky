@@ -29,8 +29,8 @@ class Chocolate {
     public function get_by_id($id){
         $query = "SELECT * FROM CHOCOLATE WHERE id=$id";
         $result = $this->db->query($query);
-        echo var_dump($result);
-        if ($result->num_rows != 0){
+        // echo var_dump($result);
+        if (!empty($result) && $result->num_rows > 0){
             return ($result->fetch_all());
         } else {
             return false;

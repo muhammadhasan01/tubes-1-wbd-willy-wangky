@@ -17,3 +17,10 @@
 .showcase-products td {
     padding: 18px;
 }
+
+.chocolate-image {
+    width: 200px; 
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+}
