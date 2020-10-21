@@ -7,9 +7,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="../../public/styles/global-style.css">
-    <link rel="stylesheet" href="detail-chocolate.css">
+    <link rel="stylesheet" href="detail-zunan.css">
+    <title>Document</title>
 <body>
     <?php
         $id = $_GET['id'];
@@ -29,8 +29,9 @@
         }
     ?>
     <br><br>
+    <style><?php include 'detail-chocolate.css';?></style>
     
-    <p class="title"><?php echo $name?></p>
+    <p class="title">Choco Name 1</p>
     
     <form id="input-data" action=""> 
         <div class="card">
