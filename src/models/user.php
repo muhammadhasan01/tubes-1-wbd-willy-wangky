@@ -8,12 +8,23 @@ class User{
         $this->db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     }
 
+
     // insert new user
     public function insert_user($username, $password, $email){
         $query = "INSERT INTO user(username, password, email, role) 
                     VALUES('$username', '$password', '$email', 'USER')";
         if ($this->db->query($query) === TRUE){
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function get_user_id($username){
+        $query = "SELECT id FROM user WHERE username = '$username'";
+        $result = $this->db->query($query);
+        if ($result->num_rows != 0){
+            return ($result->fetch_all()[0][0]);
         } else {
             return false;
         }

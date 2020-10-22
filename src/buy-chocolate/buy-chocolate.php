@@ -1,15 +1,24 @@
 <?php
 
+require_once('../models/transaction.php');
+require_once('../models/user.php');
+
+$username = $_COOKIE["username"];
+
+$user = new User();
+$id_user = $user->get_user_id($username);
 $address = $_POST["address"];
-$id = $_POST["id"];
+$id_chocolate = $_POST["id"];
 $amount = $_POST["amount"];
-echo $id;
-echo $amount;
-echo $address;
 
-//TO DO : kerjakan backend
-// kasih notif di dashboard
+if ($id_user){
+    // $buy_msg = "Pembelian sukses";
+    $transaction = new Transaction();
+    $buy_msg = $transaction->buy($id_user, $id_chocolate, $amount, $address);
+} else {
+    $buy_msg = "Transaksi gagal.";
+}
 
-header("location: /src/dashboard/dashboard.php");
+header("location: /src/dashboard/dashboard.php?buy_msg=".$buy_msg);
 
 ?>

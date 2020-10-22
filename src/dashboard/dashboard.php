@@ -16,6 +16,14 @@ include('../../components/navbar/navbar.php');
         <div class="topleft">Hello <?php echo $username; ?></div>
         <a class="topright">View all chocolates</a>
         <!-- TODO: Show Chocolates !-->
+        <p style="color: blue; text-align: center;" id="buy-msg">
+            <?php 
+                if (isset($_GET["buy_msg"])){
+                    $buy_msg = $_GET["buy_msg"];
+                    echo "$buy_msg";
+                }
+            ?> 
+        </p>
         <table class="showcase-products">
             <?php 
                 require_once('../models/chocolate.php');
@@ -40,5 +48,11 @@ include('../../components/navbar/navbar.php');
             ?>
         </table>
     </div>
+
+    <script>
+        setTimeout(function(){
+            document.getElementById("buy-msg").style.display = "none";
+        }, 3000);
+    </script>
 </body>
 </html>

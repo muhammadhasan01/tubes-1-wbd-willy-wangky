@@ -49,17 +49,17 @@
                     <tr>
                         <td>
                             <button type="button" href="" onclick="subtractAmount()">-</button>
-                            <input style="width: 50px;" id="amount" name="amount" type="number" value="0" readonly>
+                            <input style="width: 50px;" id="amount" name="amount" type="number" value="1" readonly>
                             <button type="button" href="" onclick="addAmount()">+</button>
                         </td>
-                        <td style="padding-left: 20px;">Rp.<span id="choco-price">0</span></td>
+                        <td style="padding-left: 20px;">Rp.<span id="choco-price"><?php echo $price?></span></td>
                     </tr>
                 </table>
             </div>
         </div>
         <div class="container buy-form">
             <label for="address"> Address :</label> <br>
-            <textarea name="address" id="address" cols="30" rows="10"></textarea>
+            <textarea name="address" id="address" cols="30" rows="10" required></textarea>
             <input type="hidden" value="<?php echo $id?>" name="id">
         </div>
         <div class="buy-form container">
@@ -104,7 +104,7 @@
         }
 
         function subtractAmount(){
-            if (Number(document.getElementById("amount").value) > 0){
+            if (Number(document.getElementById("amount").value) > 1){
                 document.getElementById("amount").value = Number(document.getElementById("amount").value) - 1;
             }
             updatePrice();
