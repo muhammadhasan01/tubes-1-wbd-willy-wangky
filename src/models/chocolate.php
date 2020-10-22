@@ -63,9 +63,9 @@ class Chocolate {
     public function add_amount_by_id($id, $amount){
         $query = "UPDATE chocolate SET amount = amount + $amount WHERE id = $id";
         if ($this->db->query($query) === TRUE){
-            return true;
+            return "Penambahan stok berhasil.";
         } else {
-            return false;
+            return "Penambahan stok gagal.";
         }
     }
 

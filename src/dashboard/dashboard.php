@@ -22,6 +22,10 @@ include('../../components/navbar/navbar.php');
                     $buy_msg = $_GET["buy_msg"];
                     echo "$buy_msg";
                 }
+                if (isset($_GET["add_stock_msg"])){
+                    $add_stock_msg = $_GET["add_stock_msg"];
+                    echo "$add_stock_msg";
+                }
             ?> 
         </p>
         <table class="showcase-products">
