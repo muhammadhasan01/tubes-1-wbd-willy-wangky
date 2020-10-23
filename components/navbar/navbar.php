@@ -2,7 +2,18 @@
 <div class="topnav">
     <a class="active" href="../../index.php">Home</a>
     <!-- TODO: Handle User and Superuser -->
-    <a href="#news">History</a>
+    <?php
+        require_once("../../src/models/user.php");
+        $user = new User();
+        $role = $user->get_role($_COOKIE["username"]);
+    ?>
+
+    <?php if($role == "USER") : ?>
+        <a href="../../src/transaction-history/transaction-history.php">History</a>
+    <?php elseif($role == "SUPER_USER") : ?>
+        <a href="../../src/new-chocolate/new-chocolate.php">Add New Chocolate</a>
+    <?php endif; ?>
+
     <input type="text" placeholder="Search">
     <div class="topnav-right">
         <form action="../../components/navbar/navbar.php" method="POST">
