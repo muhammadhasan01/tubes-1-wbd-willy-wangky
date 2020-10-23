@@ -35,13 +35,18 @@ require_once("../cookie-check/cookie-check.php");
                         $password = $_POST["password"];
                         $confirmpassword = $_POST["confirm-password"];
                         if ($password == $confirmpassword) {
-                            if ($User->insert_user($username, $password, $email)) {
-                                setcookie("username", $username, time() + (86400 * 30), "/"); // 30 hari, "/" artinya cookie buat seluruh website
-                                setcookie("role","USER", time() + (86400 * 30), "/"); 
-                                header("Location: /src/dashboard/dashboard.php");
-                                exit();
+                            $search_user = $User->get_user_id($username);
+                            if ($search_user !== false) {
+                                echo "<p>Your username is already registered.</p>";
                             } else {
-                                echo "<p>An error occured while we were registering your account. Pls try again.</p>";
+                                if ($User->insert_user($username, $password, $email)) {
+                                    setcookie("username", $username, time() + (86400 * 30), "/"); // 30 hari, "/" artinya cookie buat seluruh website
+                                    setcookie("role","USER", time() + (86400 * 30), "/"); 
+                                    header("Location: /src/dashboard/dashboard.php");
+                                    exit();
+                                } else {
+                                    echo "<p>An error occured while we were registering your account. Pls try again.</p>";
+                                }
                             }
                         } else {
                             echo "<p>Complete all the fields</p>";

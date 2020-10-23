@@ -36,7 +36,7 @@ include('../../components/navbar/navbar.php');
                 if (empty($all_chocolates)) {
                     echo "<tr><td>We're out of Chocolates :(</td></tr>";
                 } else {
-                    $rows = floor(count($all_chocolates) / 5) + 1;
+                    $rows = ceil(count($all_chocolates) / 5);
                     $columns = count($all_chocolates) - ($rows-1) * 5;
     
                     for ($row = 0; $row < $rows; $row++) {
