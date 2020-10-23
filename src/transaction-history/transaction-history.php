@@ -3,9 +3,19 @@
 ?>
 
 <style><?php include 'transaction-history.css'?></style>
+
 <div class="container">
 <div class="title">Transaction History</div>
-<!-- TODO: Handle when there is no transaction yet (optional) -->
+<?php 
+    require_once('../models/transaction.php');
+    $transaction = new Transaction();
+    // TODO: Use real id user
+    $transaction_history = $transaction->get_all_by_id_user(1);
+    if (empty($transaction_history)) {
+        echo "<div class='history-empty'>You have no transaction history yet</div>";
+        exit();
+    }
+?>
 <table class="transaction-history">
 <tr>
     <th>Chocolate Name</th>
@@ -15,22 +25,16 @@
     <th>Time</th>
     <th>Address</th>
 </tr>
-<!-- TODO: Fill with data transiction !-->
-<tr>
-    <td>Choco Name 1</td>
-    <td>7</td>
-    <td>Rp 21.000,00</td>
-    <td>7 Oktober 2020</td>
-    <td>09:20:21</td>
-    <td>Indonesia</td>
-</tr>
-<tr>
-    <td>Choco Name 1</td>
-    <td>7</td>
-    <td>Rp 21.000,00</td>
-    <td>7 Oktober 2020</td>
-    <td>09:20:21</td>
-    <td>Indonesia</td>
-</tr>
+<?php
+    foreach ($transaction_history as $row) {
+        echo "<tr>";
+        foreach ($row as $col) {
+            echo "<td>";
+            echo $col;
+            echo "</td>";
+        }
+        echo "</tr>";
+    }
+?>
 </table>
 </div>

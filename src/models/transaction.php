@@ -16,11 +16,7 @@ class Transaction {
         $query = "SELECT name, transaction.amount, total_price, date(time) as date, time(time) as time, address
                     FROM transaction join chocolate
                     WHERE id_chocolate = chocolate.id AND id_user = $id_user";
-        if ($this->db->query($query) === TRUE){
-            return true;
-        } else {
-            return false;
-        }
+        return $this->db->query($query)->fetch_all();
     }
     
     // fungsi untuk transaksi , memperbaharui stok dan mencatat history transaksi

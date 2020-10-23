@@ -1,6 +1,12 @@
 <?php 
     include("../cookie-check/cookie-check.php");
     include('../../components/navbar/navbar.php');
+    $id = $_GET['id'];
+    $user = new User();
+    if ($user->get_role($_COOKIE["username"]) == "USER"){
+        header("Location: detail-chocolate.php?id=$id");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +18,7 @@
     <link rel="stylesheet" href="detail-chocolate.css">
 <body>
     <?php
-        $id = $_GET['id'];
+        
         require_once('../models/chocolate.php');
         $chocolate = new Chocolate();
         $result = $chocolate->get_by_id($id);

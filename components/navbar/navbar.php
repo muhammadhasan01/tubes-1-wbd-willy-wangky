@@ -5,18 +5,18 @@
 <div class="topnav">
     <a class="<?php if (strpos($uri, 'dashboard')!==false) {echo "active";}?>" href="../../index.php">Home</a>
     <!-- TODO: Handle User and Superuser -->
-    <a class="<?php if (strpos($uri, 'history')!==false) {echo "active";}?>" href="#news">History</a>
     <?php
-        if (isset($_COOKIE["role"])) {
-            if ($_COOKIE["role"] === "SUPERUSER") {
-                $active = "";
-                if (strpos($uri, 'new-chocolate')!==false) {
-                    $active = "active";
-                }
-                echo "<a class=\"" . $active ."\" href=\"/src/new-chocolate/new-chocolate.php\">New Chocolate</a>";   
-            }
-        }
+        require_once("../../src/models/user.php");
+        $user = new User();
+        $role = $user->get_role($_COOKIE["username"]);
     ?>
+
+    <?php if($role == "USER") : ?>
+        <a <?php if (strpos($uri, 'transaction-history')!==false){echo "class='active'";}?> href="../../src/transaction-history/transaction-history.php">History</a>
+    <?php elseif($role == "SUPER_USER") : ?>
+        <a <?php if (strpos($uri, 'new-chocolate')!==false){echo "class='active'";}?> href="../../src/new-chocolate/new-chocolate.php">Add New Chocolate</a>
+    <?php endif; ?>
+
     <input type="text" placeholder="Search">
     <div class="topnav-right">
         <form action="../../components/navbar/navbar.php" method="POST" class="search-bar-form">

@@ -1,18 +1,24 @@
 <?php 
     include("../cookie-check/cookie-check.php");
     include('../../components/navbar/navbar.php');
+    $id = $_GET['id'];
+    $user = new User();
+    if ($user->get_role($_COOKIE["username"]) == "SUPER_USER"){
+        header("location: detail-chocolate-su.php?id=$id");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buy Chocolate</title>
     <link rel="stylesheet" href="../../public/styles/global-style.css">
     <link rel="stylesheet" href="detail-chocolate.css">
 <body>
     <?php
-        $id = $_GET['id'];
+        
         require_once('../models/chocolate.php');
         $chocolate = new Chocolate();
         $result = $chocolate->get_by_id($id);
