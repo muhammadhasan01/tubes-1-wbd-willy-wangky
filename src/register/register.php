@@ -37,7 +37,7 @@ require_once("../cookie-check/cookie-check.php");
                         if ($password == $confirmpassword) {
                             if ($User->insert_user($username, $password, $email)) {
                                 setcookie("username", $username, time() + (86400 * 30), "/"); // 30 hari, "/" artinya cookie buat seluruh website
-                                setcookie("password", $password, time() + (86400 * 30), "/"); 
+                                setcookie("role","USER", time() + (86400 * 30), "/"); 
                                 header("Location: /src/dashboard/dashboard.php");
                                 exit();
                             } else {

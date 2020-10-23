@@ -32,9 +32,12 @@ require_once("../cookie-check/cookie-check.php");
 
                         $username = $_POST["username"];
                         $password = $_POST["password"];
-                        if ($User->get_user($username, $password)) {
+                        $result = $User->get_user($username, $password);
+                        if ($result) {
+                            $role = $result[0][3];
+                            // echo $role;
                             setcookie("username", $username, time() + (86400 * 30), "/"); // 30 hari, "/" artinya cookie buat seluruh website
-                            setcookie("password", $password, time() + (86400 * 30), "/"); 
+                            setcookie("role", $role, time() + (86400 * 30), "/"); 
                             header("Location: /src/dashboard/dashboard.php");
                             exit();
                         } else {

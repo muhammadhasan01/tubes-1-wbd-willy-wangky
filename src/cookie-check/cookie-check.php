@@ -7,10 +7,10 @@ class CookieChecker {
     }
 
     public function check_cookie_exists() {
-        if (isset($_COOKIE["username"]) and isset($_COOKIE["password"])) {
+        if (isset($_COOKIE["username"]) and isset($_COOKIE["role"])) {
             $username = $_COOKIE["username"];
-            $password = $_COOKIE["password"];
-            return array("username" => $username, "password" => $password);
+            $role = $_COOKIE["role"];
+            return array("username" => $username, "role" => $role);
         } else {
             return false;
         }
@@ -18,6 +18,7 @@ class CookieChecker {
 }
 
 $username = "";
+$role = "";
 
 // langsung jalanin disini aja ya?
 $CookieChecker = new CookieChecker();
@@ -28,6 +29,13 @@ if (!$cookie_dict and (strpos($_SERVER['REQUEST_URI'], 'login') === false and st
 } else if ($cookie_dict) {
     if ($cookie_dict["username"]) {
         $username = $cookie_dict["username"];
+    }
+    if ($cookie_dict["role"]) {
+        $role = $cookie_dict["role"];
+        if (strpos($_SERVER['REQUEST_URI'], 'add-chocolate') !== false and $role !== "SUPERUSER") {
+            header('Location: /src/404/404.php');
+            exit();
+        }
     }
     if (strpos($_SERVER['REQUEST_URI'], 'login') !== false or strpos($_SERVER['REQUEST_URI'], 'register') !== false) {
         header('Location: /src/dashboard/dashboard.php');
