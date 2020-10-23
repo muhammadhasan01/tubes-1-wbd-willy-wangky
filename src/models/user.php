@@ -41,6 +41,18 @@ class User{
             return false;
         }
     }
+
+    # get role from username
+    public function get_role($username){
+        $query = "SELECT role FROM user
+                    WHERE username='$username'";
+        $result = $this->db->query($query);
+        if ($result->num_rows != 0){
+            return ($result->fetch_all()[0][0]);
+        } else {
+            return "User not found";
+        }
+    }
 }
 
 //Test
