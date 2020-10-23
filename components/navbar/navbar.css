@@ -3,7 +3,7 @@
     position: relative;
     background-color: #e9e9e9;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 5%;
+    height: 8%;
     width: 100%;
     display: inline-block;
     text-align: center;
@@ -14,7 +14,7 @@
     display: block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 15px;
     text-decoration: none;
     font-size: 17px;
     border: none;
