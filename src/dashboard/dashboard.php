@@ -14,7 +14,7 @@ include('../../components/navbar/navbar.php');
 <body>
     <div class="container">
         <div class="topleft">Hello <?php echo $username; ?></div>
-        <a class="topright">View all chocolates</a>
+        <a class="topright" id="view-all-chocolates">View less chocolates</a>
         <!-- TODO: Show Chocolates !-->
         <p style="color: blue; text-align: center;" id="buy-msg">
             <?php 
@@ -36,11 +36,21 @@ include('../../components/navbar/navbar.php');
                 if (empty($all_chocolates)) {
                     echo "<tr><td>We're out of Chocolates :(</td></tr>";
                 } else {
-                    $rows = ceil(count($all_chocolates) / 5);
-                    $columns = count($all_chocolates) - ($rows-1) * 5;
-    
+                    $amount_of_chocolates = count($all_chocolates);
+                    $rows = ceil($amount_of_chocolates / 5);
+                    
                     for ($row = 0; $row < $rows; $row++) {
                         echo "<tr>";
+                        $columns = 0;
+                        if ($row == $rows - 1) {
+                            $columns = $amount_of_chocolates % 5;
+                            if ($columns === 0) {
+                                $columns = 5;
+                            }
+                        } else {
+                            $columns = 5;
+                        }
+
                         for ($col = 0; $col < $columns; $col++) {
                             echo "<td>";
                             include '../../components/card/product-card.php';
@@ -55,8 +65,29 @@ include('../../components/navbar/navbar.php');
 
     <script>
         setTimeout(function(){
-            document.getElementById("buy-msg").style.display = "none";
+            document.getElementById("buy-msg").style.display = "none"
         }, 3000);
+        document.getElementById("view-all-chocolates").addEventListener("click", function() {
+            var choco_table = document.querySelector("tbody")
+            if (choco_table) {
+                if (this.innerText.includes("all")) {
+                    this.innerText = "View less chocolates"
+                } else {
+                    this.innerText = "View all chocolates"
+                }
+                var choco_table_children = document.querySelector("tbody").children;
+                if (choco_table_children.length > 2) {
+                    for (var i = 2; i < choco_table_children.length; i++) {
+                        if (choco_table_children[i].style.display !== "") {
+                            choco_table_children[i].style["display"] = "";
+                        } else {
+                            choco_table_children[i].style["display"] = "none";
+                        }
+                    }
+                }
+            }
+        })
+        document.getElementById("view-all-chocolates").click();
     </script>
 </body>
 </html>
