@@ -183,14 +183,40 @@ Deadline tugas adalah pada hari Minggu, 25 Oktober 2020 pukul 19.00 WIB. Waktu p
 Setiap anggota kelompok diwajibkan untuk mengerjakan bagian frontend dan backend.
 
 ### Frontend
-1. Login : 13518xxx, 13518xxx
-2. Register : 13518xxx
-3. (Lanjutkan …)
+1. Login : 13518022
+2. Register : 13518022
+3. 404 : 13518022
+4. Add Chocolate : 
+5. Buy Chocolate : 
+6. Cookie Check : -
+7. Dashboard : 13518022
+8. Detail Chocolate : 
+9. Models : -
+10. New Chocolate : 13518022
+11. Search Result : 13518022
+12. Transaction History : 
+13. Navbar : 13518022
+14. Product Card : 
+15. Search Result Card : 13518022
+
 
 ### Backend
-1. Login : 13518xxx, 13518xxx
-2. Register : 13518xxx
-3. (Lanjutkan…)
+1. Login : 13518022
+2. Register : 13518022
+3. 404 : -
+4. Add Chocolate : 
+5. Buy Chocolate : 
+6. Cookie Check : 13518022
+7. Dashboard : 13518022
+8. Detail Chocolate : 
+9. Models : 
+10. New Chocolate : 13518022
+11. Search Result : 13518022
+12. Transaction History : 
+13. Navbar : 13518022
+14. Product Card : -
+15. Search Result Card : -
+
 
 ## About
 
