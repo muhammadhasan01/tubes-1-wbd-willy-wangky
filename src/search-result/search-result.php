@@ -10,10 +10,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/global-style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="search-result.css">
+    <title>Search Result</title>
 </head>
 <body>
     <div class="container">
+        <div class="pagination">
+            <p class="page" id="1">1</p>
+        </div>
         <?php
             $Chocolate = new Chocolate();
             if (isset($_GET["name"])) {
@@ -40,5 +44,6 @@
             }
         ?>
     </div>
+    <script src="../../public/js/search-result.js"></script>
 </body>
 </html>
