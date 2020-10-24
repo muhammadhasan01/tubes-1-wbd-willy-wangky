@@ -24,12 +24,9 @@ let pagination_numbers = document.getElementsByClassName("page");
 
 // GABISA PAKE VAR, JANGAN PERNAH PAKE VAR LAGI
 for (let i = 0; i < NUM_OF_PAGES; i++) {
-    console.log("i : " + i);
     let pagination_number = document.getElementById(`${i + 1}`);
     pagination_number.addEventListener("click", () => {
         for (j = 0; j < search_results.length; j++) {
-            console.log("i : " + i);
-            console.log("j : " + j);
             if (j >= i * PAG_LEN && j < i * PAG_LEN + PAG_LEN) {
                 search_results[j].style["display"] = "";
             } else {
@@ -37,7 +34,6 @@ for (let i = 0; i < NUM_OF_PAGES; i++) {
             }
         }
         for (j = 0; j < NUM_OF_PAGES; j++) {
-            console.log(pagination_numbers[j]);
             if (i === j) {
                 pagination_numbers[j].classList.add("active");
             } else {
