@@ -14,7 +14,7 @@ create table chocolate (
     sold int not null default 0,
     description text,
     file_name varchar(255) not null,
-    CHECK(amount > 0),
+    CHECK(amount >= 0),
     CHECK(price>0)
 );
 

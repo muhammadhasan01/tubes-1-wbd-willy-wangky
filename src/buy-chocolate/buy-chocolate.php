@@ -9,7 +9,7 @@ $user = new User();
 $id_user = $user->get_user_id($username);
 $address = $_POST["address"];
 $id_chocolate = $_POST["id"];
-$amount = $_POST["amount"];
+$amount = (int)$_POST["amount"];
 
 if ($id_user){
     // $buy_msg = "Pembelian sukses";
@@ -19,6 +19,6 @@ if ($id_user){
     $buy_msg = "Transaksi gagal.";
 }
 
-header("location: /src/dashboard/dashboard.php?buy_msg=".$buy_msg);
+header("location: /src/dashboard/dashboard.php?buy_msg=".$buy_msg . $amount);
 
 ?>

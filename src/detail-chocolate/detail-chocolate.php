@@ -73,12 +73,20 @@
             <button type="button" class="buttons" onclick="hideForm()">Cancel</button>
         </div>
         <div class="buy container">
-            <button type="button" class="buttons" onclick="showForm()">Buy Now</button>
+            <button id="buy-now-button" type="button" class="buttons" onclick="showForm()">Buy Now</button>
         </div>
     </form>
 
 
     <script>
+        window.onload = function(){
+            if (Number(<?php echo $amount?>) == 0){
+                document.getElementById("buy-now-button").disabled = true;
+                document.getElementById("buy-now-button").innerHTML = "Out of Stock";
+                document.getElementById("buy-now-button").style.background = "grey";
+            }
+        };
+        
         function showForm(){
             var temp2 = document.getElementsByClassName("buy");
             for (let div2 of temp2){
