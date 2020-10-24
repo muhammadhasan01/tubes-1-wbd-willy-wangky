@@ -27,23 +27,23 @@ include('../../components/navbar/navbar.php');
                     $amount = $_POST["amount"];
 
                     $file_extension = strtolower(pathinfo($_FILES["image"]["name"])["extension"]);
-                    $target_file = "../../public/images/" . basename($_FILES["image"]["name"]);
+                    // $target_file = "../../public/images/" . basename($_FILES["image"]["name"]);
                     if (!in_array($file_extension, $allowed_extensions)) {
                         echo '<p class="fail-upload">Please upload an image of type JPG or PNG</p>';
                     } else {
-                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                            if ($chocolate->insert($name, $price, $amount, $description, basename($_FILES["image"]["name"]))) {
-                                if (!file_exists($target_file)) {
-                                    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-                                }
-                                echo '<p class="successful-upload">Successfully uploaded</p>';
-                            }
-                        } else {
-                            echo '<p class="fail-upload">An error occurred 1</p>';
+                        $file_name_in_db = pathinfo($_FILES["image"]["name"])["filename"] . "-" . strval(random_int(0, 99)) . "." . $file_extension;
+                        $target_file = "../../public/images/" . $file_name_in_db;
+                        while (file_exists($target_file)) {
+                            $file_name_in_db = pathinfo($_FILES["image"]["name"])["filename"] . "-" . strval(random_int(0, 99)) . "." . $file_extension;
+                            $target_file = "../../public/images/" . $file_name_in_db;
+                        }
+                        if ($chocolate->insert($name, $price, $amount, $description, $file_name_in_db)) {
+                            move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+                            echo '<p class="successful-upload">Successfully uploaded</p>';
                         }
                     }
                 } else {
-                    echo '<p class="fail-upload">An error occurred 2</p>';
+                    echo '<p class="fail-upload">An error occurred</p>';
                 }
             }
 
