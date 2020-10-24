@@ -2,6 +2,7 @@
     include('../../components/navbar/navbar.php');
 ?>
 
+<style><?php include '../../public/styles/global-style.css'?></style>
 <style><?php include 'transaction-history.css'?></style>
 
 <div class="container">

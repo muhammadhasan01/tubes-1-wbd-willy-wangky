@@ -24,6 +24,7 @@
                     if ($search_result != "No result.") {
                         $result_length = count($search_result);
                         for ($i = 0; $i < $result_length; $i++) {
+                            $choco_id = $search_result[$i][0];
                             $choco_name = $search_result[$i][1];
                             $price = $search_result[$i][2];
                             $amount_remaining = $search_result[$i][3];
@@ -38,6 +39,6 @@
                 }
             }
         ?>
-    </div>  
+    </div>
 </body>
 </html>
