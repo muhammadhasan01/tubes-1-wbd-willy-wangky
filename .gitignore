@@ -4,3 +4,9 @@ debug.log
 *.png
 *.PNG
 *.JPG
+!choco-0.jpg
+!choco-1.jpg
+!choco-2.jpg
+!choco-3.jpg
+!choco-4.jpg
+!choco-5.jpg
