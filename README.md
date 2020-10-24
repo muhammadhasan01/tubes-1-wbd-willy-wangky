@@ -189,7 +189,7 @@ Setiap anggota kelompok diwajibkan untuk mengerjakan bagian frontend dan backend
 4. Add Chocolate : 
 5. Buy Chocolate : 
 6. Cookie Check : -
-7. Dashboard : 13518022
+7. Dashboard : 
 8. Detail Chocolate : 
 9. Models : -
 10. New Chocolate : 13518022
