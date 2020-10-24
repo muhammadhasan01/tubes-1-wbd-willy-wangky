@@ -16,14 +16,15 @@
     <?php elseif($role == "SUPER_USER") : ?>
         <a <?php if (strpos($uri, 'new-chocolate')!==false){echo "class='active'";}?> href="../../src/new-chocolate/new-chocolate.php">Add New Chocolate</a>
     <?php endif; ?>
-
-    <input type="text" placeholder="Search">
+    <input type="text" placeholder="Search" id="search-bar">
+    <input type="button" value="" id="search-button">
     <div class="topnav-right">
         <form action="../../components/navbar/navbar.php" method="POST" class="search-bar-form">
             <input type="hidden" name="logout" value="logout">
             <input type="submit" value="Logout" class="logout">    
         </form>
     </div>
+    <script src="../../public/js/navbar.js"></script>
 </div>
 <?php
     if (isset($_POST["logout"])) {
