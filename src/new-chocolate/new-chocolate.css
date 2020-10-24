@@ -51,11 +51,3 @@
 .add-chocolate-form > input[type="submit"]:hover {
     background-color: rgb(97, 49, 14);
 }
-
-.fail-upload {
-    color: red;
-}
-
-.successful-upload {
-    color: green;
-}

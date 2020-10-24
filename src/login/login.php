@@ -24,6 +24,7 @@ require_once("../cookie-check/cookie-check.php");
                 <h2>Login</h2>
             </div>
             <div class="box">
+                <p class="fail-upload" id="fail-upload"></p>
                 <?php
                     if (isset($_POST["username"]) and isset($_POST["password"])) {
                         $user_model_path = "../models/user.php";
@@ -41,15 +42,15 @@ require_once("../cookie-check/cookie-check.php");
                             header("Location: /src/dashboard/dashboard.php");
                             exit();
                         } else {
-                            echo "<p>Enter the correct uname and password</p>";
+                            // echo "<p>Enter the correct uname and password</p>";
                         }
                     } else {
-                        echo "<p>Enter your username and password</p>";
+                        // echo "<p>Enter your username and password</p>";
                     }
                 ?>
             </div>
             <div class="box">
-                <form action="login.php" method="post" class="column-flex">
+                <form action="login.php" method="post" class="column-flex" id="login-form">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username">
     
@@ -58,12 +59,14 @@ require_once("../cookie-check/cookie-check.php");
                     
                     <div class="buttons row-flex">
                         <a href="../register/register.php">Register</a>
-                        <input type="submit" value="Login">
+                        <input type="button" value="Login" id="login-button">
                     </div>
                 </form>
             </div>
         </div>  
     </div>
     <div class="background">&dbsp</div>
+
+    <script src="../../public/js/login.js"></script>
 </body>
 </html>

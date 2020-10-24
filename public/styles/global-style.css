@@ -32,3 +32,11 @@ body {
 a {
     text-decoration: none;
 }
+
+.fail-upload {
+    color: red;
+}
+
+.successful-upload {
+    color: green;
+}

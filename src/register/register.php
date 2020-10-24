@@ -24,6 +24,7 @@ require_once("../cookie-check/cookie-check.php");
                 <h2>Register</h2>
             </div>
             <div class="box">
+                <p class="fail-upload" id="fail-upload"></p>
                 <?php
                     if (isset($_POST["username"]) and isset($_POST["email"]) and isset($_POST["password"]) and isset($_POST["confirm-password"])) {
                         $user_model_path = "../models/user.php";
@@ -49,15 +50,15 @@ require_once("../cookie-check/cookie-check.php");
                                 }
                             }
                         } else {
-                            echo "<p>Complete all the fields</p>";
+                            // echo "<p>Complete all the fields</p>";
                         }
                     } else {
-                        echo "<p>Complete all the fields</p>";
+                        // echo "<p>Complete all the fields</p>";
                     }
                 ?>
             </div>
             <div class="box">
-                <form action="register.php" method="POST" class="column-flex" >
+                <form action="register.php" method="POST" class="column-flex" id="register-form">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username">
     
@@ -72,12 +73,14 @@ require_once("../cookie-check/cookie-check.php");
 
                     <div class="buttons row-flex">
                         <a href="../login/login.php">Login</a>
-                        <input type="submit" value="Register">
+                        <input type="button" value="Register" id="register-button">
                     </div>
                 </form>
             </div>
         </div>  
     </div>
     <div class="background">&dbsp</div>
+
+    <script src="../../public/js/register.js"></script>
 </body>
 </html>
