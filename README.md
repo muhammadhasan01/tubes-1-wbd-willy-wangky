@@ -27,6 +27,40 @@ Aplikasi ini memiliki fitur :
 
 ## Tampilan aplikasi
 
+Berikut adalah tampilan aplikasi yang telah dibuat
+
+### Halaman Login
+
+![Halaman-Login](screenshots/login.png)
+
+### Halaman Register
+
+![Halaman-Register](screenshots/register.png)
+
+### Halaman Dashboard
+
+![Halaman-Dashboar](screenshots/dashboard.png)
+
+### Halaman Buy Chocolate
+
+![Halaman-Buy](screenshots/buy-chocolate.png)
+
+### Halaman Search Result
+
+![Halaman-Search](screenshots/search-result.png)
+
+### Halaman History
+
+![Halaman-History](screenshots/history.png)
+
+### Halaman Add Stock
+
+![Halaman-add-stock](screenshots/add-stock.png)
+
+### Halaman Add New Chocolate
+
+![Halaman-add-chocolate](screenshots/add-new-chocolate.png)
+
 ## Pembagian Tugas
 
 Setiap anggota kelompok diwajibkan untuk mengerjakan bagian frontend dan backend.
