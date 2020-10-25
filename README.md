@@ -189,14 +189,14 @@ Setiap anggota kelompok diwajibkan untuk mengerjakan bagian frontend dan backend
 4. Add Chocolate : 
 5. Buy Chocolate : 
 6. Cookie Check : -
-7. Dashboard : 
+7. Dashboard : 13518012
 8. Detail Chocolate : 
 9. Models : -
 10. New Chocolate : 13518022
-11. Search Result : 13518022
-12. Transaction History : 
-13. Navbar : 13518022
-14. Product Card : 
+11. Search Result : 13518012, 13518022
+12. Transaction History : 13518012 
+13. Navbar : 13518012, 13518022
+14. Product Card : 13518012
 15. Search Result Card : 13518022
 
 
@@ -212,7 +212,7 @@ Setiap anggota kelompok diwajibkan untuk mengerjakan bagian frontend dan backend
 9. Models : 
 10. New Chocolate : 13518022
 11. Search Result : 13518022
-12. Transaction History : 
+12. Transaction History : 13518012
 13. Navbar : 13518022
 14. Product Card : -
 15. Search Result Card : -
