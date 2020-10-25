@@ -4,7 +4,7 @@ http.onreadystatechange = function() {
         if (this.responseText === "ok") {
             document.getElementById("register-form").submit()
         } else {
-            document.getElementById("fail-upload").innerText = "Username already registered."
+            document.getElementById("fail-upload").innerText = "Username / Email already registered."
         }
     }
 }
