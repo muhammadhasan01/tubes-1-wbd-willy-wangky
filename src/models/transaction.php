@@ -15,7 +15,8 @@ class Transaction {
         // select * from 
         $query = "SELECT name, transaction.amount, total_price, date(time) as date, time(time) as time, address
                     FROM transaction join chocolate
-                    WHERE id_chocolate = chocolate.id AND id_user = $id_user";
+                    WHERE id_chocolate = chocolate.id AND id_user = $id_user
+                    ORDER BY date DESC";
         return $this->db->query($query)->fetch_all();
     }
     
