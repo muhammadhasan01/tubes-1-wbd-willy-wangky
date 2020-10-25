@@ -18,7 +18,7 @@ document.getElementById("register-button").addEventListener("click", () => {
             document.getElementById("fail-upload").innerText = "Your password does not match your confirmation password."
         } else {
             document.getElementById("fail-upload").innerText = ""
-            http.open("GET", "register-api.php?username=" + username, true)
+            http.open("GET", `register-api.php?email=${email}&username=${username}`, true)
             http.send()
         }
     } else {

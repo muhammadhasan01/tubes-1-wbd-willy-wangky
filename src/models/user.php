@@ -30,10 +30,32 @@ class User{
         }
     }
 
+    public function get_user_id_by_email($email){
+        $query = "SELECT id FROM user WHERE email = '$email'";
+        $result = $this->db->query($query);
+        if ($result->num_rows != 0){
+            return ($result->fetch_all()[0][0]);
+        } else {
+            return false;
+        }
+    }
+
     // return user (id, username, email, role)
     public function get_user($username, $password){
         $query = "SELECT id, username, email, role FROM user
                     WHERE username='$username' and password='$password'";
+        $result = $this->db->query($query);
+        if ($result->num_rows != 0){
+            return ($result->fetch_all());
+        } else {
+            return false;
+        }
+    }
+
+    // return user (id, username, email, role)
+    public function get_user_by_email($email, $password) {
+        $query = "SELECT id, username, email, role FROM user
+                    WHERE email='$email' and password='$password'";
         $result = $this->db->query($query);
         if ($result->num_rows != 0){
             return ($result->fetch_all());

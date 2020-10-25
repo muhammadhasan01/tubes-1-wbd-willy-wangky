@@ -26,16 +26,17 @@ require_once("../cookie-check/cookie-check.php");
             <div class="box">
                 <p class="fail-upload" id="fail-upload"></p>
                 <?php
-                    if (isset($_POST["username"]) and isset($_POST["password"])) {
+                    if (isset($_POST["email"]) and isset($_POST["password"])) {
                         $user_model_path = "../models/user.php";
                         require_once($user_model_path);
                         $User = new User();
 
-                        $username = $_POST["username"];
+                        $email = $_POST["email"];
                         $password = $_POST["password"];
-                        $result = $User->get_user($username, $password);
+                        $result = $User->get_user_by_email($email, $password);
                         if ($result) {
                             $role = $result[0][3];
+                            $username = $result[0][1];
                             // echo $role;
                             setcookie("username", $username, time() + (86400 * 30), "/"); // 30 hari, "/" artinya cookie buat seluruh website
                             setcookie("role", $role, time() + (86400 * 30), "/"); 
@@ -51,8 +52,11 @@ require_once("../cookie-check/cookie-check.php");
             </div>
             <div class="box">
                 <form action="login.php" method="post" class="column-flex" id="login-form">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username">
+                    <!-- <label for="username">Username</label>
+                    <input type="text" id="username" name="username"> -->
+
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email">
     
                     <label for="password">Password</label>
                     <input type="text" id="password" name="password">
