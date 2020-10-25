@@ -3,6 +3,15 @@
     include('../../components/navbar/navbar.php');
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+</head>
+<body>
+
 <style><?php include '../../public/styles/global-style.css'?></style>
 <style><?php include 'transaction-history.css'?></style>
 
@@ -43,3 +52,6 @@
 ?>
 </table>
 </div>
+
+</body>
+</html>

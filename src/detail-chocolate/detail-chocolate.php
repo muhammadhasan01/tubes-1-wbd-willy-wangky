@@ -42,6 +42,7 @@
         <div class="card">
             <img src="../../public/images/<?php echo $filename;?>"></img>
             <div class="details">
+                <p class="amount">Amount sold: <?php echo $sold;?></p>
                 <p class="price">Price: Rp <?php echo $price;?>,00</p>
                 <p class="amount">Amount remaining: <?php echo $amount;?></p>
                 <p class="desc">
