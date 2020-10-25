@@ -186,11 +186,11 @@ Setiap anggota kelompok diwajibkan untuk mengerjakan bagian frontend dan backend
 1. Login : 13518022
 2. Register : 13518022
 3. 404 : 13518022
-4. Add Chocolate : 
-5. Buy Chocolate : 
+4. Add Chocolate : 13518019
+5. Buy Chocolate : 13518019
 6. Cookie Check : -
 7. Dashboard : 13518012
-8. Detail Chocolate : 
+8. Detail Chocolate : 13518019
 9. Models : -
 10. New Chocolate : 13518022
 11. Search Result : 13518012, 13518022
@@ -204,12 +204,12 @@ Setiap anggota kelompok diwajibkan untuk mengerjakan bagian frontend dan backend
 1. Login : 13518022
 2. Register : 13518022
 3. 404 : -
-4. Add Chocolate : 
-5. Buy Chocolate : 
+4. Add Chocolate : 13518019
+5. Buy Chocolate : 13518019
 6. Cookie Check : 13518022
 7. Dashboard : 13518022
-8. Detail Chocolate : 
-9. Models : 
+8. Detail Chocolate : 13518019
+9. Models : 13518019
 10. New Chocolate : 13518022
 11. Search Result : 13518022
 12. Transaction History : 13518012
